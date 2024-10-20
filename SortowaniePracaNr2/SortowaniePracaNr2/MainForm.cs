@@ -77,7 +77,7 @@ namespace SortowaniePracaNr2
                 this.arrayToSort[i] = Convert.ToInt32(numberStringArray[i]);
             }
 
-            this.numbersToSortText.Text = string.Join(" ", this.arrayToSort);
+            this.numbersToSortText.Text = String.Join(" ", this.arrayToSort);
             this.sortedNumberText.Text = "";
             this.sortingTimeText.Text = "";
         }
