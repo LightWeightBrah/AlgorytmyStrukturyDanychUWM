@@ -32,25 +32,25 @@
             button1 = new Button();
             button2 = new Button();
             numericAmountText = new NumericUpDown();
-            numbersToSort = new TextBox();
+            numbersToSortText = new TextBox();
             button3 = new Button();
-            sortingTime = new TextBox();
+            sortingTimeText = new TextBox();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
             button7 = new Button();
             panel1 = new Panel();
+            label4 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             sortedNumberText = new TextBox();
-            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericAmountText).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            SuspendLayout();
+            this.SuspendLayout();
             // 
             // numbersToConvertText
             // 
@@ -58,7 +58,7 @@
             numbersToConvertText.Name = "numbersToConvertText";
             numbersToConvertText.Size = new Size(202, 23);
             numbersToConvertText.TabIndex = 0;
-            numbersToConvertText.TextChanged += textBox1_TextChanged;
+            numbersToConvertText.TextChanged += this.textBox1_TextChanged;
             // 
             // button1
             // 
@@ -68,7 +68,7 @@
             button1.TabIndex = 1;
             button1.Text = "Konwertuj";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += OnConvertButtonClick;
+            button1.Click += this.OnConvertButtonClick;
             // 
             // button2
             // 
@@ -78,7 +78,7 @@
             button2.TabIndex = 2;
             button2.Text = "Generuj";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += OnGenerateButtonClick;
+            button2.Click += this.OnGenerateButtonClick;
             // 
             // numericAmountText
             // 
@@ -86,16 +86,15 @@
             numericAmountText.Name = "numericAmountText";
             numericAmountText.Size = new Size(72, 23);
             numericAmountText.TabIndex = 3;
-            numericAmountText.ValueChanged += numericUpDown1_ValueChanged;
+            numericAmountText.ValueChanged += this.numericUpDown1_ValueChanged;
             // 
             // numbersToSort
             // 
-            numbersToSort.Location = new Point(82, 259);
-            numbersToSort.Name = "numbersToSort";
-            numbersToSort.Size = new Size(228, 23);
-            numbersToSort.TabIndex = 4;
-            numbersToSort.Text = "Podane liczby";
-            numbersToSort.TextChanged += textBox2_TextChanged;
+            numbersToSortText.Location = new Point(82, 259);
+            numbersToSortText.Name = "numbersToSort";
+            numbersToSortText.Size = new Size(228, 23);
+            numbersToSortText.TabIndex = 4;
+            numbersToSortText.TextChanged += this.textBox2_TextChanged;
             // 
             // button3
             // 
@@ -105,16 +104,16 @@
             button3.TabIndex = 5;
             button3.Text = "Bubble Sort";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += OnBubbleSortButtonClick;
+            button3.Click += this.OnBubbleSortButtonClick;
             // 
             // sortingTime
             // 
-            sortingTime.Location = new Point(178, 316);
-            sortingTime.Name = "sortingTime";
-            sortingTime.Size = new Size(434, 23);
-            sortingTime.TabIndex = 6;
-            sortingTime.Text = "Czas sortowania: ";
-            sortingTime.TextChanged += textBox3_TextChanged;
+            sortingTimeText.Location = new Point(178, 316);
+            sortingTimeText.Name = "sortingTime";
+            sortingTimeText.Size = new Size(434, 23);
+            sortingTimeText.TabIndex = 6;
+            sortingTimeText.Text = "Czas sortowania: ";
+            sortingTimeText.TextChanged += this.textBox3_TextChanged;
             // 
             // button4
             // 
@@ -124,7 +123,7 @@
             button4.TabIndex = 7;
             button4.Text = "Insertion Sort";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += OnInsertionSortButtonClick;
+            button4.Click += this.OnInsertionSortButtonClick;
             // 
             // button5
             // 
@@ -134,7 +133,7 @@
             button5.TabIndex = 8;
             button5.Text = "Merge Sort";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += OnMergeSortButtonClick;
+            button5.Click += this.OnMergeSortButtonClick;
             // 
             // button6
             // 
@@ -144,7 +143,7 @@
             button6.TabIndex = 9;
             button6.Text = "Quick Sort";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += OnQuickSortButtonClick;
+            button6.Click += this.OnQuickSortButtonClick;
             // 
             // button7
             // 
@@ -154,7 +153,7 @@
             button7.TabIndex = 10;
             button7.Text = "Counting Sort";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += OnCountingSortButtonClick;
+            button7.Click += this.OnCountingSortButtonClick;
             // 
             // panel1
             // 
@@ -166,7 +165,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(343, 181);
             panel1.TabIndex = 11;
-            panel1.Paint += panel1_Paint;
+            panel1.Paint += this.panel1_Paint;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(63, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(148, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Podaj liczby do sortowania";
+            label4.Click += this.label4_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -185,7 +194,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(367, 181);
             panel2.TabIndex = 12;
-            panel2.Paint += panel2_Paint;
+            panel2.Paint += this.panel2_Paint;
             // 
             // label1
             // 
@@ -195,7 +204,7 @@
             label1.Size = new Size(161, 15);
             label1.TabIndex = 4;
             label1.Text = "Ilość liczb do wygenerowania";
-            label1.Click += label1_Click;
+            label1.Click += this.label1_Click;
             // 
             // label2
             // 
@@ -214,7 +223,7 @@
             label3.Size = new Size(109, 15);
             label3.TabIndex = 15;
             label3.Text = "Posortowane liczby";
-            label3.Click += label3_Click;
+            label3.Click += this.label3_Click;
             // 
             // sortedNumberText
             // 
@@ -222,46 +231,35 @@
             sortedNumberText.Name = "sortedNumberText";
             sortedNumberText.Size = new Size(250, 23);
             sortedNumberText.TabIndex = 14;
-            sortedNumberText.Text = "Podane liczby";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(63, 29);
-            label4.Name = "label4";
-            label4.Size = new Size(148, 15);
-            label4.TabIndex = 2;
-            label4.Text = "Podaj liczby do sortowania";
-            label4.Click += label4_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(label3);
-            Controls.Add(sortedNumberText);
-            Controls.Add(label2);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(sortingTime);
-            Controls.Add(button3);
-            Controls.Add(numbersToSort);
-            Name = "MainForm";
-            Text = "SortowaniePracaDomowa2";
-            Load += Form1_Load;
+            this.AutoScaleDimensions = new SizeF(7F, 15F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(800, 450);
+            this.Controls.Add(flowLayoutPanel1);
+            this.Controls.Add(label3);
+            this.Controls.Add(sortedNumberText);
+            this.Controls.Add(label2);
+            this.Controls.Add(panel2);
+            this.Controls.Add(panel1);
+            this.Controls.Add(button7);
+            this.Controls.Add(button6);
+            this.Controls.Add(button5);
+            this.Controls.Add(button4);
+            this.Controls.Add(sortingTimeText);
+            this.Controls.Add(button3);
+            this.Controls.Add(numbersToSortText);
+            this.Name = "MainForm";
+            this.Text = "SortowaniePracaDomowa2";
+            this.Load += this.Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericAmountText).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
@@ -270,9 +268,9 @@
         private Button button1;
         private Button button2;
         private NumericUpDown numericAmountText;
-        private TextBox numbersToSort;
+        private TextBox numbersToSortText;
         private Button button3;
-        private TextBox sortingTime;
+        private TextBox sortingTimeText;
         private Button button4;
         private Button button5;
         private Button button6;

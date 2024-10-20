@@ -11,7 +11,6 @@ namespace SortowaniePracaNr2
         public MainForm()
         {
             this.InitializeComponent();
-            //2 8 5 3 9 4 1
         }
 
         private void Sort(SORTING_TYPE sortingType)
@@ -25,27 +24,33 @@ namespace SortowaniePracaNr2
 
                 this.timer.Start();
                 int[] sortedArray = null;
+                string sortingName = "";
 
                 switch (sortingType)
                 {
                     case SORTING_TYPE.BUBBLE:
                         sortedArray = Sorter.BubbleSort(this.arrayToSort);
+                        sortingName = "bubble";
                         break;
 
                     case SORTING_TYPE.INSERTION:
                         sortedArray = Sorter.InsertionSort(this.arrayToSort);
+                        sortingName = "insertion";
                         break;
 
                     case SORTING_TYPE.MERGE:
                         sortedArray = Sorter.MergeSort(this.arrayToSort);
+                        sortingName = "merge";
                         break;
 
                     case SORTING_TYPE.QUICK:
                         sortedArray = Sorter.QuickSort(this.arrayToSort);
+                        sortingName = "quick";
                         break;
 
                     case SORTING_TYPE.COUNTING:
                         sortedArray = Sorter.CountingSort(this.arrayToSort);
+                        sortingName = "counting";
                         break;
 
                 }
@@ -53,7 +58,7 @@ namespace SortowaniePracaNr2
 
                 string resultText = String.Join(" ", sortedArray);
                 this.sortedNumberText.Text = resultText;
-                this.sortingTime.Text = $"Czas sortowania babelkowego wynosil: {this.timer.Elapsed}";
+                this.sortingTimeText.Text = $"Czas {sortingName} sort wynosil: {this.timer.Elapsed}";
                 this.timer.Reset();
 
             }
@@ -65,14 +70,16 @@ namespace SortowaniePracaNr2
 
         private void OnConvertButtonClick(object sender, EventArgs e)
         {
-            string[] numberStringArray = this.numbersToConvertText.Text.Split(" ");
+            string[] numberStringArray = this.numbersToConvertText.Text.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             this.arrayToSort = new int[numberStringArray.Length];
             for (int i = 0; i < numberStringArray.Length; i++)
             {
                 this.arrayToSort[i] = Convert.ToInt32(numberStringArray[i]);
             }
 
-            this.numbersToSort.Text = this.numbersToConvertText.Text;
+            this.numbersToSortText.Text = string.Join(" ", this.arrayToSort);
+            this.sortedNumberText.Text = "";
+            this.sortingTimeText.Text = "";
         }
 
         private void OnGenerateButtonClick(object sender, EventArgs e)
@@ -87,7 +94,9 @@ namespace SortowaniePracaNr2
             }
 
             string resultText = String.Join(" ", this.arrayToSort);
-            this.numbersToSort.Text = resultText;
+            this.numbersToSortText.Text = resultText;
+            this.sortedNumberText.Text = "";
+            this.sortingTimeText.Text = "";
         }
 
         private void OnBubbleSortButtonClick(object sender, EventArgs e)
@@ -139,8 +148,6 @@ namespace SortowaniePracaNr2
         {
 
         }
-
-
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
