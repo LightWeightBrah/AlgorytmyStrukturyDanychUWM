@@ -41,14 +41,14 @@
             this.listLabelText = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.OnRemoveLastButtonClick = new System.Windows.Forms.Button();
-            this.OnRemoveFirstButtonClick = new System.Windows.Forms.Button();
+            this.RemoveLastButton = new System.Windows.Forms.Button();
+            this.RemoveFirstButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // createListButton
@@ -71,7 +71,7 @@
             this.numbersInListTextBox.Name = "numbersInListTextBox";
             this.numbersInListTextBox.Size = new System.Drawing.Size(282, 29);
             this.numbersInListTextBox.TabIndex = 1;
-            this.numbersInListTextBox.Text = "Liczby";
+            this.numbersInListTextBox.Text = "1 2 3 4";
             // 
             // label1
             // 
@@ -101,7 +101,7 @@
             this.numbersToAddTextBox.Name = "numbersToAddTextBox";
             this.numbersToAddTextBox.Size = new System.Drawing.Size(282, 29);
             this.numbersToAddTextBox.TabIndex = 5;
-            this.numbersToAddTextBox.Text = "Liczby";
+            this.numbersToAddTextBox.Text = "5 6 7";
             this.numbersToAddTextBox.TextChanged += new System.EventHandler(this.numbersToAddTextBox_TextChanged);
             // 
             // label3
@@ -168,8 +168,8 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightCoral;
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.OnRemoveLastButtonClick);
-            this.panel2.Controls.Add(this.OnRemoveFirstButtonClick);
+            this.panel2.Controls.Add(this.RemoveLastButton);
+            this.panel2.Controls.Add(this.RemoveFirstButton);
             this.panel2.Location = new System.Drawing.Point(39, 322);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(503, 98);
@@ -186,26 +186,29 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Usun liste";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.OnRemoveListButtonClick);
             // 
-            // OnRemoveLastButtonClick
+            // RemoveLastButton
             // 
-            this.OnRemoveLastButtonClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OnRemoveLastButtonClick.Location = new System.Drawing.Point(201, 23);
-            this.OnRemoveLastButtonClick.Name = "OnRemoveLastButtonClick";
-            this.OnRemoveLastButtonClick.Size = new System.Drawing.Size(107, 57);
-            this.OnRemoveLastButtonClick.TabIndex = 14;
-            this.OnRemoveLastButtonClick.Text = "Usun koniec";
-            this.OnRemoveLastButtonClick.UseVisualStyleBackColor = true;
+            this.RemoveLastButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RemoveLastButton.Location = new System.Drawing.Point(201, 23);
+            this.RemoveLastButton.Name = "RemoveLastButton";
+            this.RemoveLastButton.Size = new System.Drawing.Size(107, 57);
+            this.RemoveLastButton.TabIndex = 14;
+            this.RemoveLastButton.Text = "Usun koniec";
+            this.RemoveLastButton.UseVisualStyleBackColor = true;
+            this.RemoveLastButton.Click += new System.EventHandler(this.OnRemoveLastButtonClick);
             // 
-            // OnRemoveFirstButtonClick
+            // RemoveFirstButton
             // 
-            this.OnRemoveFirstButtonClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OnRemoveFirstButtonClick.Location = new System.Drawing.Point(20, 23);
-            this.OnRemoveFirstButtonClick.Name = "OnRemoveFirstButtonClick";
-            this.OnRemoveFirstButtonClick.Size = new System.Drawing.Size(107, 57);
-            this.OnRemoveFirstButtonClick.TabIndex = 13;
-            this.OnRemoveFirstButtonClick.Text = "Usun poczatek";
-            this.OnRemoveFirstButtonClick.UseVisualStyleBackColor = true;
+            this.RemoveFirstButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.RemoveFirstButton.Location = new System.Drawing.Point(20, 23);
+            this.RemoveFirstButton.Name = "RemoveFirstButton";
+            this.RemoveFirstButton.Size = new System.Drawing.Size(107, 57);
+            this.RemoveFirstButton.TabIndex = 13;
+            this.RemoveFirstButton.Text = "Usun poczatek";
+            this.RemoveFirstButton.UseVisualStyleBackColor = true;
+            this.RemoveFirstButton.Click += new System.EventHandler(this.OnRemoveFirstButtonClick_Click);
             // 
             // label4
             // 
@@ -229,21 +232,21 @@
             this.label5.Text = "Numer używanej listy:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // numericUpDown1
+            // numericUpDown
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(566, 116);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(39, 30);
-            this.numericUpDown1.TabIndex = 14;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown.Location = new System.Drawing.Point(566, 116);
+            this.numericUpDown.Name = "numericUpDown";
+            this.numericUpDown.Size = new System.Drawing.Size(39, 30);
+            this.numericUpDown.TabIndex = 14;
+            this.numericUpDown.ValueChanged += new System.EventHandler(this.OnNumericValueChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDown);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
@@ -260,7 +263,7 @@
             this.Text = "Linked List";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,10 +284,10 @@
         private System.Windows.Forms.Label listLabelText;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button OnRemoveLastButtonClick;
-        private System.Windows.Forms.Button OnRemoveFirstButtonClick;
+        private System.Windows.Forms.Button RemoveLastButton;
+        private System.Windows.Forms.Button RemoveFirstButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.Button button2;
     }
 }

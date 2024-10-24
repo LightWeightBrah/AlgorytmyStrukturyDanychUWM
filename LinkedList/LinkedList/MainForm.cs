@@ -95,6 +95,41 @@ namespace LinkedList
             }
         }
 
+        //TODO: dodac usuniecie listy gdy jest pusta
+        private void OnRemoveFirstButtonClick_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.linkedLists[this.indexOfCurrentList].RemoveFirst();
+                this.UpdateListsLabelText();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show($"Nie ma utworzonych zadnych list");
+            }
+        }
+        private void OnRemoveLastButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                this.linkedLists[this.indexOfCurrentList].RemoveLast();
+                this.UpdateListsLabelText();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Nie ma utworzonych zadnych list");
+            }
+        }
+        private void OnNumericValueChanged(object sender, EventArgs e)
+        {
+            this.indexOfCurrentList = (int)this.numericUpDown.Value;
+        }
+        private void OnRemoveListButtonClick(object sender, EventArgs e)
+        {
+            this.linkedLists.RemoveAt(this.indexOfCurrentList);
+            this.UpdateListsLabelText();
+        }
+
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -115,10 +150,6 @@ namespace LinkedList
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void numbersToAddTextBox_TextChanged(object sender, EventArgs e)
         {

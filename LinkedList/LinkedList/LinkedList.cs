@@ -91,7 +91,8 @@ namespace LinkedList
 
         public void RemoveLast()
         {
-            this.tail.previous.next = null;  
+            this.tail.previous.next = null;
+            this.tail = this.tail.previous;
         }
 
         public string ToString()
