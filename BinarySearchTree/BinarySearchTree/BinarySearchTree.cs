@@ -56,5 +56,53 @@ namespace BinarySearchTree
 
             newNode.parent = parent;
         }
+
+        public void Delete(int value)
+        {
+            this.root = this.DeleteNode(this.root, value);
+        }
+
+        private Node DeleteNode(Node root, int value)
+        {
+            if (root == null) return root;
+
+            if (value < root.value)
+            {
+                root.left = this.DeleteNode(root.left, value);
+            }
+            else if (value > root.value)
+            {
+                root.right = this.DeleteNode(root.right, value);
+            }
+            else
+            {
+                if (root.left == null)
+                {
+                    return root.right;
+                }
+                else if (root.right == null)
+                {
+                    return root.left;
+                }
+
+                root.value = this.MinValue(root.right);
+
+                root.right = this.DeleteNode(root.right, root.value);
+            }
+
+            return root;
+        }
+
+        private int MinValue(Node node)
+        {
+            int minValue = node.value;
+            while (node.left != null)
+            {
+                node = node.left;
+                minValue = node.value;
+            }
+            return minValue;
+        }
+
     }
 }

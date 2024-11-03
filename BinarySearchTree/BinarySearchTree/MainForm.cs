@@ -9,6 +9,7 @@ namespace BinarySearchTree
         private BinarySearchTree bst;
         private TextBox inputBox;
         private Button addButton;
+        private Button deleteButton;
 
         public MainForm()
         {
@@ -27,9 +28,26 @@ namespace BinarySearchTree
             this.addButton.Location = new Point(70, 10);
             this.addButton.Click += this.OnAddButtonClick;
 
+            this.deleteButton = new Button();
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.Location = new Point(130, 10);
+            this.deleteButton.Click += this.OnDeleteButtonClick;
+
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.deleteButton);
             this.Paint += this.OnPaint;
+        }
+
+        private void OnDeleteButtonClick(object sender, EventArgs e)
+        {
+            int value;
+            if (int.TryParse(this.inputBox.Text, out value))
+            {
+                this.bst.Delete(value);
+                this.Invalidate();
+                this.inputBox.Clear();
+            }
         }
 
         private void OnAddButtonClick(object sender, EventArgs e)
